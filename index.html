@@ -3,142 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raju Saha - CV Portfolio</title>
+<title>Raju Saha | Digital Portfolio</title>
 <style>
-/* CSS update: Smooth scroll and better layout */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: system-ui, -apple-system, sans-serif; background:#f3f4f6; scroll-behavior: smooth; }
-.cv-root { width:100%; max-width:700px; margin:0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
-.nav-bar { display:flex; gap:6px; flex-wrap:wrap; padding:14px 20px 12px; border-bottom:0.5px solid #e5e7eb; background:#fff; position:sticky; top:0; z-index:10; }
-.nav-btn { font-size:12px; font-weight:500; padding:6px 14px; border-radius:20px; border:0.5px solid #d1d5db; background:transparent; color:#6b7280; cursor:pointer; transition:0.3s; }
-.nav-btn.active { background:#0f2d4a; color:#fff; border-color:#0f2d4a; }
-.section { display:none; padding:28px 24px; animation:fadeIn 0.4s ease; }
-.section.visible { display:block; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-.hero-card { border-radius:12px; border:0.5px solid #e5e7eb; background:#fff; overflow:hidden; margin-bottom: 20px; }
-.hero-top { background:#0f2d4a; padding:40px 28px; display:flex; align-items:center; gap:24px; }
-.avatar-photo { width:110px; height:110px; border-radius:50%; border:3px solid #c9a84c; overflow:hidden; flex-shrink:0; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
-.avatar-photo img { width:100%; height:100%; object-fit:cover; }
-.hero-name { font-size:32px; font-weight:600; color:#fff; }
-.hero-name span { color:#c9a84c; }
-.hero-sub { font-size:11px; color:rgba(255,255,255,0.6); letter-spacing:2px; text-transform:uppercase; margin-top:5px; }
-.objective-text { font-size:14px; line-height:1.8; color:#4b5563; border-left:4px solid #c9a84c; padding-left:15px; margin: 20px 0; }
-.chips { display:flex; flex-wrap:wrap; gap:8px; }
-.chip { font-size:11px; font-weight:500; padding:5px 12px; border-radius:20px; background:#f3f4f6; color:#374151; border: 0.5px solid #d1d5db; }
-/* Skills Bar */
-.skill-item { margin-bottom:20px; }
-.skill-head { display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px; font-weight:500; }
-.bar-track { height:8px; background:#e5e7eb; border-radius:10px; }
-.bar-fill { height:100%; border-radius:10px; background: linear-gradient(90deg, #0f2d4a, #c9a84c); transition: width 1s ease-in-out; }
-/* Timeline */
-.timeline { position:relative; padding-left:25px; border-left: 2px solid #e5e7eb; margin-left: 10px; }
-.tl-item { position:relative; margin-bottom:30px; }
-.tl-dot { position:absolute; left:-32px; top:5px; width:12px; height:12px; border-radius:50%; background:#c9a84c; border: 3px solid #fff; }
-.tl-badge { font-size:10px; background:#0f2d4a; color:#fff; padding:2px 10px; border-radius:20px; margin-bottom:8px; display:inline-block; }
-.tl-title { font-size:15px; font-weight:600; color:#111; }
-.tl-bullets { list-style:none; margin-top:8px; }
-.tl-bullets li { font-size:13px; color:#6b7280; margin-bottom:4px; padding-left:15px; position:relative; }
-.tl-bullets li::before { content:'•'; position:absolute; left:0; color:#c9a84c; font-weight:bold; }
+/* Carlos Design Inspired Styles */
+:root {
+    --bg-color: #0a0a0b;
+    --card-bg: #141417;
+    --accent: #c9a84c; /* Golden accent from your branding */
+    --text-main: #ffffff;
+    --text-dim: #a1a1aa;
+    --glass: rgba(255, 255, 255, 0.03);
+}
 
-@media (max-width:500px) { .hero-top { flex-direction:column; text-align:center; } }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    background: var(--bg-color); 
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.cv-container { width:100%; max-width:900px; margin:0 auto; padding: 40px 20px; }
+
+/* Navigation */
+.nav-glass {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    margin-bottom: 50px;
+}
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 10px 25px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-btn.active { background: var(--accent); color: #000; }
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.avatar-container {
+    width: 150px; height: 150px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(45deg, var(--accent), transparent);
+}
+.avatar-container img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #222;
+}
+.hero-name { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; }
+.hero-name span { color: var(--accent); }
+.hero-tagline { color: var(--text-dim); font-size: 1.2rem; margin-top: 10px; }
+
+/* Grid Sections */
+.section { display: none; animation: slideUp 0.6s ease forwards; }
+.section.visible { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 24px;
+}
+.full-width { grid-column: 1 / -1; }
+
+.section-title { font-size: 1.5rem; margin-bottom: 25px; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+
+/* Skill Bars (Minimalist) */
+.skill-row { margin-bottom: 25px; }
+.skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; }
+.skill-bar-bg { height: 4px; background: #27272a; border-radius: 2px; }
+.skill-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+/* Experience Timeline */
+.exp-item { border-left: 1px solid #27272a; padding-left: 30px; position: relative; margin-bottom: 40px; }
+.exp-item::before { content: ''; position: absolute; left: -5px; top: 5px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+.exp-date { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+.exp-title { font-size: 1.2rem; margin: 5px 0; }
+.exp-desc { color: var(--text-dim); font-size: 0.95rem; }
+
+/* Portfolio Grid */
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.work-item { 
+    aspect-ratio: 16/9; 
+    background: #1c1c21; 
+    border-radius: 15px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: #444;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.work-item:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 768px) {
+    .section.visible { grid-template-columns: 1fr; }
+    .hero-name { font-size: 2.5rem; }
+}
 </style>
 </head>
 <body>
 
-<div class="cv-root">
-  <nav class="nav-bar">
-    <button class="nav-btn active" onclick="showTab('home', this)">About</button>
-    <button class="nav-btn" onclick="showTab('skills', this)">Skills</button>
-    <button class="nav-btn" onclick="showTab('experience', this)">Experience</button>
-    <button class="nav-btn" onclick="showTab('portfolio', this)">Portfolio</button>
-  </nav>
+<div class="cv-container">
+    <nav class="nav-glass">
+        <button class="nav-btn active" onclick="tab('home', this)">Home</button>
+        <button class="nav-btn" onclick="tab('about', this)">About</button>
+        <button class="nav-btn" onclick="tab('work', this)">Work</button>
+    </nav>
 
-  <div class="section visible" id="sec-home">
-    <div class="hero-card">
-      <div class="hero-top">
-        <div class="avatar-photo">
-          <img src="https://via.placeholder.com/150" alt="Raju Saha">
+    <header class="hero-section">
+        <div class="avatar-container">
+            <img src="https://via.placeholder.com/150" alt="Raju Saha">
         </div>
-        <div>
-          <h1 class="hero-name">Raju <span>Saha</span></h1>
-          <p class="hero-sub">AI Creator & Educator</p>
-        </div>
-      </div>
-      <div style="padding: 24px;">
-        <div class="objective-text">
-          মানসম্মত শিক্ষায় আগামী প্রজন্ম গড়ার লক্ষে আমি একজন নিবেদিতপ্রাণ ডিজিটাল ক্রিয়েটর। 
-          AI ইমেজ জেনারেশন এবং প্রফেশনাল ব্র্যান্ডিংয়ের মাধ্যমে আমি করপোরেট আইডেন্টিটি এবং 
-          সৃজনশীল ভিজ্যুয়াল তৈরিতে দক্ষ। আধুনিক প্রযুক্তির সাথে শিক্ষার সমন্বয় করাই আমার মূল উদ্দেশ্য।
-        </div>
-        <div class="chips">
-          <span class="chip">AI Prompt Engineering</span>
-          <span class="chip">Digital Branding</span>
-          <span class="chip">Educational Content</span>
-          <span class="chip">Cinematic Arts</span>
-        </div>
-      </div>
-    </div>
-  </div>
+        <h1 class="hero-name">RAJU <span>SAHA</span></h1>
+        <p class="hero-tagline">AI Visionary & Digital Branding Expert</p>
+    </header>
 
-  <div class="section" id="sec-skills">
-    <h2 style="font-size:18px; margin-bottom:20px; color:#0f2d4a;">Technical Expertise</h2>
-    <div class="skill-item">
-      <div class="skill-head"><span>AI Portrait & Cinematic Design</span><span>95%</span></div>
-      <div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div>
+    <div id="sec-home" class="section visible">
+        <div class="card full-width">
+            <h2 class="section-title">Vision</h2>
+            <p style="font-size: 1.2rem; color: var(--text-dim);">
+                মানসম্মত শিক্ষায় আগামী প্রজন্ম গড়ার লক্ষে কাজ করছি। AI প্রযুক্তির সাহায্যে করপোরেট ব্র্যান্ডিং এবং সৃজনশীল কন্টেন্ট জেনারেশনে আমি নতুন দিগন্ত উন্মোচন করি।
+            </p>
+        </div>
+        <div class="card">
+            <h2 class="section-title">Core Focus</h2>
+            <ul style="list-style: none; color: var(--text-dim);">
+                <li style="margin-bottom:15px;">→ AI Prompt Engineering</li>
+                <li style="margin-bottom:15px;">→ Professional ID Design</li>
+                <li style="margin-bottom:15px;">→ Educational Content Branding</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill-row">
+                <div class="skill-info"><span>AI Generation</span><span>95%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-row">
+                <div class="skill-info"><span>Digital Design</span><span>85%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+        </div>
     </div>
-    <div class="skill-item">
-      <div class="skill-head"><span>Graphic Design (Logo & Branding)</span><span>85%</span></div>
-      <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-head"><span>Educational Content Planning</span><span>90%</span></div>
-      <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
-    </div>
-  </div>
 
-  <div class="section" id="sec-experience">
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-badge">2025 - Present</div>
-        <p class="tl-title">Digital Identity Specialist</p>
-        <ul class="tl-bullets">
-          <li>AI ব্যবহার করে প্রফেশনাল করপোরেট পোর্ট্রেট এবং আইডি কার্ড ডিজাইন।</li>
-          <li>সোশ্যাল মিডিয়া ব্র্যান্ডিং এবং ভিজ্যুয়াল কন্টেন্ট অপ্টিমাইজেশন।</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-badge">Project</div>
-        <p class="tl-title">Quality Education Initiative</p>
-        <ul class="tl-bullets">
-          <li>"মানসম্মত শিক্ষায় গড়ছি আগামী প্রজন্ম" থিমের ওপর ব্র্যান্ডিং এবং লোগো ডেভেলপমেন্ট।</li>
-          <li>শিক্ষামূলক গ্রাফিক্স এবং ডিজিটাল রিসোর্স তৈরি।</li>
-        </ul>
-      </div>
+    <div id="sec-about" class="section">
+        <div class="card full-width">
+            <h2 class="section-title">Experience</h2>
+            <div class="exp-item">
+                <span class="exp-date">2025 - Present</span>
+                <h3 class="exp-title">Digital Identity Specialist</h3>
+                <p class="exp-desc">AI ব্যবহার করে প্রফেশনাল করপোরেট পোর্ট্রেট এবং আইডি কার্ড ডিজাইন প্রজেক্ট পরিচালনা।</p>
+            </div>
+            <div class="exp-item">
+                <span class="exp-date">Active Project</span>
+                <h3 class="exp-title">Quality Education Branding</h3>
+                <p class="exp-desc">"মানসম্মত শিক্ষায় গড়ছি আগামী প্রজন্ম" থিমের ওপর ব্র্যান্ড আইডেন্টিটি ডেভেলপমেন্ট।</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="section" id="sec-portfolio">
-    <p style="text-align:center; color:#9ca3af; padding:40px 0;">Portfolio items will appear here...</p>
-  </div>
+    <div id="sec-work" class="section">
+        <div class="card full-width">
+            <h2 class="section-title">Selected Works</h2>
+            <div class="portfolio-grid">
+                <div class="work-item">Corporate Portrait</div>
+                <div class="work-item">Branding Logo</div>
+                <div class="work-item">Cinematic Arts</div>
+                <div class="work-item">FB Cover Design</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-  function showTab(tabId, btn) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(section => {
-      section.classList.remove('visible');
-    });
-    // Deactivate all buttons
-    document.querySelectorAll('.nav-btn').forEach(b => {
-      b.classList.remove('active');
-    });
-    // Show selected section
-    document.getElementById('sec-' + tabId).classList.add('visible');
-    // Set button active
+function tab(name, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sec-' + name).classList.add('visible');
     btn.classList.add('active');
-  }
+}
 </script>
 
 </body>
